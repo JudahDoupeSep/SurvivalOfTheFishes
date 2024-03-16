@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4179420080986669267
+--- !u!1001 &4413903125110188386
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 7754192516009828063, guid: c5e1e7bb4cf98b04e9b2d9c17b78a94c,
         type: 3}
       propertyPath: m_Name
-      value: Dorry Variant
+      value: Marlin Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7754192516009828063, guid: c5e1e7bb4cf98b04e9b2d9c17b78a94c,
         type: 3}
@@ -21,7 +21,7 @@ PrefabInstance:
     - target: {fileID: 8878180665557191844, guid: c5e1e7bb4cf98b04e9b2d9c17b78a94c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8878180665557191844, guid: c5e1e7bb4cf98b04e9b2d9c17b78a94c,
         type: 3}
@@ -31,7 +31,7 @@ PrefabInstance:
     - target: {fileID: 8878180665557191844, guid: c5e1e7bb4cf98b04e9b2d9c17b78a94c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8878180665557191844, guid: c5e1e7bb4cf98b04e9b2d9c17b78a94c,
         type: 3}
@@ -75,25 +75,23 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7754192516009828063, guid: c5e1e7bb4cf98b04e9b2d9c17b78a94c,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6000977002162560427}
+      addedObject: {fileID: 3266651914895004975}
   m_SourcePrefab: {fileID: 100100000, guid: c5e1e7bb4cf98b04e9b2d9c17b78a94c, type: 3}
---- !u!1 &5880616346518707724 stripped
+--- !u!1 &6259221192976103357 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7754192516009828063, guid: c5e1e7bb4cf98b04e9b2d9c17b78a94c,
     type: 3}
-  m_PrefabInstance: {fileID: 4179420080986669267}
+  m_PrefabInstance: {fileID: 4413903125110188386}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6000977002162560427
+--- !u!114 &3266651914895004975
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5880616346518707724}
+  m_GameObject: {fileID: 6259221192976103357}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4522a7b79e8c93a47a87e1cc91990c23, type: 3}
+  m_Script: {fileID: 11500000, guid: d219017ed31d1d6499faf140efb97322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StreamWidth: 100
-  SwimDepth: 30

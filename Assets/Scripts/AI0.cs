@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class AI0 : MonoBehaviour
+public class AI0 : AIPlayer
 {
-    public float StreamWidth = 100f;
-    public float SwimDepth = 30f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +21,7 @@ public class AI0 : MonoBehaviour
         float zDelta = Mathf.Max(0, transform.localPosition.z - SwimDepth);
         zDelta += Mathf.Min(0, transform.localPosition.z + SwimDepth);
 
-        Debug.Log(name +":"+ transform.localPosition + " MoveX:" + xDelta + " MoveZ:" + zDelta);
+        //Debug.Log(name +":"+ transform.localPosition + " MoveX:" + xDelta + " MoveZ:" + zDelta);
         transform.localPosition -= new Vector3(xDelta, 0, zDelta);
     }
 }

@@ -13,6 +13,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nemo Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7754192516009828063, guid: c5e1e7bb4cf98b04e9b2d9c17b78a94c,
+        type: 3}
+      propertyPath: m_TagString
+      value: AI
+      objectReference: {fileID: 0}
     - target: {fileID: 8878180665557191844, guid: c5e1e7bb4cf98b04e9b2d9c17b78a94c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -90,3 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086312835d0dfe34d9590d0d1110c82c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Speed: 4
+  StreamWidth: 100
+  SwimDepth: 30
