@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -21,6 +22,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _instance = this;
+        UiManager.ShowTitleScreen();
+        UiManager.ShowPrompt();
     }
     
     private void Update()
@@ -49,22 +52,35 @@ public class GameManager : MonoBehaviour
     
     private void StartGame()
     {
-        UiManager.HideTitleScreen();
+        UiManager.HideAll();
         Hatchery.SpawnFish(10, ArtiFishalIntelligence.Dory);
         Hatchery.SpawnFish(10, ArtiFishalIntelligence.Nemo);
-        playAreaMovement.started = true;
+        PlayAreaMovement.StartMoving();
         _state = GameState.Playing;
     }
 
     public static GameState State => _instance._state;
 
-    public static void LoseGame()
+    public static void LoseGame() => _instance.StartCoroutine(_instance.LoseGameCutscene());
+
+    private void WinGame() => StartCoroutine(WinGameCutscene());
+
+    private IEnumerator LoseGameCutscene()
     {
         _instance._state = GameState.CutScene;
+        PlayAreaMovement.StopMoving();
+        UiManager.ShowLoseScreen();
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     
-    private void WinGame()
+    private IEnumerator WinGameCutscene()
     {
         _instance._state = GameState.CutScene;
+        PlayAreaMovement.StopMoving();
+        UiManager.ShowWinScreen();
+        yield return new WaitForSeconds(3);
+        UiManager.ShowPrompt();
+        _instance._state = GameState.WaitingForInput;
     }
 }
