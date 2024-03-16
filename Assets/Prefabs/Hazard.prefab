@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5222349405565092684}
   m_Layer: 0
   m_Name: Hazard
-  m_TagString: Untagged
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,6 +67,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad8b0d951c3bbf499d8a1bb77b404e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LeftFrontCorner: {x: 0, y: 0, z: 0}
+  RightFrontCorner: {x: 0, y: 0, z: 0}
+  FrontOffset: 0
+  LeftOffset: 0
+  RightOffset: 0
 --- !u!1 &3368168152133049817
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,6 +16,7 @@ public class Hatchery : MonoBehaviour
 {
     private static Hatchery _instance;
     private static List<GameObject> _competitors;
+    public static List<Hazard> Hazards;
 
     private static int totalCompetitors = 0;
     public static float minFishSize = 0.8f;
@@ -28,13 +30,14 @@ public class Hatchery : MonoBehaviour
     public GameObject Marlin;
 
     
-    void Start()
+    void Awake()
     {
         _instance = this;
         _competitors = new List<GameObject>();
         var playerMovement = FindObjectOfType<PlayerController>();
         _streamWidth = playerMovement.StreamWidth;
         _streamDepth = playerMovement.SwimDepth;
+        Hazards = new List<Hazard>();
     }
 
     public static int CompetitorCount => _competitors.Count;
@@ -84,5 +87,10 @@ public class Hatchery : MonoBehaviour
                                                        0.1f,
                                                        Random.Range(-_instance._streamDepth, _instance._streamDepth));
         }
+    }
+
+    public static void AddHazards(Hazard[] newHazards)
+    {
+        Hazards.AddRange(newHazards);
     }
 }
