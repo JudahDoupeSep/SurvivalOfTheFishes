@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class AI0 : AIPlayer
+public class AI0 : Fish
 {
 
     // Start is called before the first frame update

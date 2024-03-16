@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : Fish
 {
-    public float Speed = 4f;
-    public float StreamWidth = 100f;
-    public float SwimDepth = 30f;
-
     private Rigidbody rb;
 
     // Start is called before the first frame update

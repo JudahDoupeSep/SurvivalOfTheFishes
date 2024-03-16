@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class AI2 : AIPlayer
+public class AI2 : Fish
 {
     public float Tolerance = .05f;
     // Start is called before the first frame update

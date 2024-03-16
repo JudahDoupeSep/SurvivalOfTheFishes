@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIPlayer : MonoBehaviour
+public class Fish : MonoBehaviour
 {
     public float Speed = 4f;
     public float StreamWidth = 100f;

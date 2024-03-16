@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AI1 : AIPlayer
+public class AI1 : Fish
 {
     public float Stability = 20;
 
