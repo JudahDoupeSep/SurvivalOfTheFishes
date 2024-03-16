@@ -13,8 +13,8 @@ public class Hazard : MonoBehaviour
 
     private void Start()
     {
-        LeftFrontCorner = transform.position += new Vector3(LeftOffset, 0, FrontOffset);
-        RightFrontCorner = transform.position += new Vector3(RightOffset, 0, FrontOffset);
+        LeftFrontCorner = transform.position + new Vector3(LeftOffset, 0, FrontOffset);
+        RightFrontCorner = transform.position + new Vector3(RightOffset, 0, FrontOffset);
     }
 
     private void OnCollisionEnter(Collision collision)
