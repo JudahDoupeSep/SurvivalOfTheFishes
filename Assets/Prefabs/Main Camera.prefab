@@ -155,6 +155,7 @@ MonoBehaviour:
     type: 3}
   waterfall: {fileID: 0}
   streams:
-  - {fileID: 122137033106918875, guid: 091a55cfbbb3bba40bd7a3101ec2e628, type: 3}
-  - {fileID: 3949648385686807606, guid: 349216240bdc25442a59807761159a13, type: 3}
+  - {fileID: 4596625126082872318, guid: c0f12778cf090914e876af026a954dfb, type: 3}
+  - {fileID: 1855003797866816835, guid: 9a502fc570513e241b50d41396202663, type: 3}
+  - {fileID: 8689984049473559660, guid: e9d5ff7dcb1a30f4cb52c3ab3be5e5cc, type: 3}
   streamSegmentLength: 100
