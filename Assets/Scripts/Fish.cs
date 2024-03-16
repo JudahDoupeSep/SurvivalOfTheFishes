@@ -8,12 +8,8 @@ public class Fish : MonoBehaviour
     public float StreamWidth = 100f;
     public float SwimDepth = 30f;
     public GameObject[] Hazards;
-
-    protected float ActiveSpeed;
-
     protected void StartFish()
     {
-        ActiveSpeed = Speed;
         UpdateAnimationSpeed(Random.Range(0.5f, 1));
     }
 
@@ -26,7 +22,6 @@ public class Fish : MonoBehaviour
     {
         if (collision.gameObject.name == "Waterfall")
         {
-            ActiveSpeed = 0;
             GetComponentInChildren<MeshRenderer>().gameObject.transform.Rotate(-90, 0, 0);
         }
     }
@@ -35,13 +30,10 @@ public class Fish : MonoBehaviour
     {
         if (collision.gameObject.name == "Waterfall")
         {
-            ActiveSpeed = Speed;
             GetComponentInChildren<MeshRenderer>().gameObject.transform.Rotate(90, 0, 0);
         }
     }
 
-    public void UpdateAnimationSpeed(float speed)
     {
-        GetComponentInChildren<Animator>().SetFloat("SwimSpeed", speed);
     }
 }

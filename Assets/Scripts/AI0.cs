@@ -22,6 +22,6 @@ public class AI0 : Fish
         zDelta += Mathf.Min(0, transform.localPosition.z + SwimDepth);
 
         //Debug.Log(name +":"+ transform.localPosition + " MoveX:" + xDelta + " MoveZ:" + zDelta);
-        transform.localPosition -= new Vector3(xDelta, 0, zDelta);
+        Swim(new Vector3(-1*xDelta, 0, -1*zDelta));
     }
 }

@@ -23,7 +23,7 @@ public class Hazard : MonoBehaviour
         {
             GameManager.LoseGame();
         }
-        else
+        else if (collision.gameObject.CompareTag("AI"))
         {
             Hatchery.KillFish(collision.gameObject);
         }
