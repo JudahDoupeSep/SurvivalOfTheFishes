@@ -12,7 +12,20 @@ public enum GameState
 
 public class GameManager : MonoBehaviour
 {
+<<<<<<< HEAD
+    public GameObject playArea;
 
+    private GameObject[] aiPlayers;
+
+    private void Update()
+    {
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            StartGame();
+        }
+
+        
+=======
     private static GameManager _instance;
     private GameState _state = GameState.WaitingForInput;
     
@@ -21,6 +34,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _instance = this;
+>>>>>>> e2ba3b8 (added win)
     }
     
     private void Update()
@@ -50,6 +64,21 @@ public class GameManager : MonoBehaviour
     private void StartGame()
     {
         UiManager.HideTitleScreen();
+<<<<<<< HEAD
+        playArea.GetComponent<PlayAreaMovement>().started = true;
+        aiPlayers = GameObject.FindGameObjectsWithTag("AI");
+        Debug.Log("AIs:" + aiPlayers.Length);
+
+        var hazards = GameObject.FindGameObjectsWithTag("Hazard");
+        Debug.Log("Hazards:" + hazards.Length);
+
+        foreach (var aiPlayer in aiPlayers)
+        {
+            aiPlayer.GetComponent<AIPlayer>().Hazards = hazards;
+        }
+
+
+=======
         Hatchery.SpawnFish(10, ArtiFishalIntelligence.Dory);
         Hatchery.SpawnFish(10, ArtiFishalIntelligence.Nemo);
         playAreaMovement.started = true;
@@ -66,5 +95,6 @@ public class GameManager : MonoBehaviour
     private void WinGame()
     {
         _instance._state = GameState.CutScene;
+>>>>>>> e2ba3b8 (added win)
     }
 }
