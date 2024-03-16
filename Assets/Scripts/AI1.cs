@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AI1 : AIPlayer
 {
+    public float Stability = 20;
+
     private float lastX = 0;
     private float lastZ = 0;
 
@@ -16,9 +18,9 @@ public class AI1 : AIPlayer
     // Update is called once per frame
     void Update()
     {
-        float xMove = (Random.Range(0, 20) < 1) ? Random.Range(-1, 2) : lastX;
+        float xMove = (Random.Range(0, Stability) < 1) ? Random.Range(-1, 2) : lastX;
 
-        float zMove = (Random.Range(0, 20) < 1) ? Random.Range(-1, 2) : lastZ;
+        float zMove = (Random.Range(0, Stability) < 1) ? Random.Range(-1, 2) : lastZ;
 
         lastX = xMove;
         lastZ = zMove;
