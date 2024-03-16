@@ -17,8 +17,8 @@ public class Hatchery : MonoBehaviour
     private static List<GameObject> _competitors;
 
     private static int totalCompetitors = 0;
-    public static float minFishSize = 0.4f;
-    public static float maxFishSize = 2f;
+    public static float minFishSize = 0.8f;
+    public static float maxFishSize = 2.6f;
 
     private float _streamWidth;
     private float _streamDepth;
