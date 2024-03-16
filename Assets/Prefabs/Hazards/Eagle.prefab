@@ -46,9 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad8b0d951c3bbf499d8a1bb77b404e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftFrontCorner: {x: 0, y: 0, z: 0}
-  RightFrontCorner: {x: 0, y: 0, z: 0}
   FrontOffset: -0.5
+  BackOffset: 0.5
   LeftOffset: -0.5
   RightOffset: 0.5
 --- !u!136 &5076865403223603560
