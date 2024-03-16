@@ -95,5 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4522a7b79e8c93a47a87e1cc91990c23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StreamWidth: 100
-  SwimDepth: 30
+  Speed: 4
+  StreamWidth: 5
+  SwimDepth: 3
+  Hazards: []

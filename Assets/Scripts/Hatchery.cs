@@ -28,7 +28,7 @@ public class Hatchery : MonoBehaviour
     {
         _instance = this;
         _competitors = new List<GameObject>();
-        var playerMovement = FindObjectOfType<PlayerMovement>();
+        var playerMovement = FindObjectOfType<PlayerController>();
         _streamWidth = playerMovement.StreamWidth;
         _streamDepth = playerMovement.SwimDepth;
     }
@@ -60,7 +60,7 @@ public class Hatchery : MonoBehaviour
                 default:
                     throw new ArgumentOutOfRangeException(nameof(intelligence), intelligence, null);
             }
-
+            _competitors.Add(fish);
             fish.transform.parent = _instance.transform;
             fish.transform.localPosition = new Vector3(Random.Range(-_instance._streamWidth, _instance._streamWidth),
                                                        0.1f,

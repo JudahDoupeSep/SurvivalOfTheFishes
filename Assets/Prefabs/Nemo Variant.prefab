@@ -96,5 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 4
-  StreamWidth: 100
-  SwimDepth: 30
+  StreamWidth: 5
+  SwimDepth: 3
+  Hazards: []
+  Stability: 20
