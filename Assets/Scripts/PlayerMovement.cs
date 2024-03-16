@@ -27,7 +27,10 @@ public class PlayerMovement : MonoBehaviour
         float zDelta = Mathf.Max(Mathf.Min(zMove * Speed * Time.deltaTime, SwimDepth - transform.localPosition.z),
             -1 * SwimDepth - transform.localPosition.z);
 
+<<<<<<< HEAD
         //Debug.Log(name + ":" + transform.localPosition);
+=======
+>>>>>>> e2ba3b8 (added win)
         transform.localPosition += new Vector3(xDelta, 0, zDelta);
 
     }

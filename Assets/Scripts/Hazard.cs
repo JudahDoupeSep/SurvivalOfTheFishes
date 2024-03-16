@@ -13,7 +13,7 @@ public class Hazard : MonoBehaviour
         }
         else
         {
-            Destroy(collision.gameObject);
+            Hatchery.KillFish(collision.gameObject);
         }
     }
 }
