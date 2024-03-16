@@ -150,5 +150,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c77d820de8fd54409943115b64350f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  streamSegments: []
+  initialStream: {fileID: 0}
+  emptyStream: {fileID: 7178992286304603185, guid: 19e22459e2c56e245a356d112f861b85,
+    type: 3}
+  waterfall: {fileID: 0}
+  streams:
+  - {fileID: 7178992286304603185, guid: 19e22459e2c56e245a356d112f861b85, type: 3}
   streamSegmentLength: 100

@@ -4,26 +4,40 @@ using UnityEngine;
 
 public class StreamGeneration : MonoBehaviour
 {
-    public GameObject[] streamSegments;
+    public GameObject initialStream;
+    public GameObject emptyStream;
+    public GameObject waterfall;
+    public GameObject[] streams;
     public float streamSegmentLength = 100f;
-    private float startingZ;
-    private float nextGenerationZ;
-    private int nextMovedSegment = 0;
+    private float startingPosition;
+    private float generateNextOncePositionReached;
+    private GameObject latestStreamSegment;
+    private int spawnedSegments = 0;
 
     void Start()
     {
-        startingZ = transform.position.z;
-        nextGenerationZ = startingZ + streamSegmentLength;
+        startingPosition = transform.position.z;
+        generateNextOncePositionReached = startingPosition + streamSegmentLength;
+        latestStreamSegment = initialStream;
+        SpawnNextSegment();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.z > nextGenerationZ)
+        if (transform.position.z > generateNextOncePositionReached)
         {
-            nextGenerationZ += streamSegmentLength;
-            streamSegments[nextMovedSegment].transform.position += Vector3.forward * streamSegmentLength * streamSegments.Length;
-            nextMovedSegment = (nextMovedSegment + 1) % streamSegments.Length;
+            generateNextOncePositionReached += streamSegmentLength;
+            SpawnNextSegment();
         }
+    }
+
+    void SpawnNextSegment()
+    {
+        Vector3 latestPosition = latestStreamSegment.transform.position;
+        GameObject randomStream = streams[Mathf.RoundToInt(Random.Range(0, streams.Length) % streams.Length)];
+        latestStreamSegment = Object.Instantiate(randomStream);
+        latestStreamSegment.transform.position += latestPosition + (Vector3.forward * streamSegmentLength);
+        spawnedSegments++;
     }
 }
