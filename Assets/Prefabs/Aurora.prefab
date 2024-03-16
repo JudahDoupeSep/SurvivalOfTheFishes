@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7209603449902368932}
   - component: {fileID: 4592011529303887010}
   m_Layer: 0
-  m_Name: Arora
+  m_Name: Aurora
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
