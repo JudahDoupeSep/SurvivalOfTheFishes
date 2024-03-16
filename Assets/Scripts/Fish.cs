@@ -34,6 +34,13 @@ public class Fish : MonoBehaviour
         }
     }
 
+    public void UpdateAnimationSpeed(float speed)
     {
+        GetComponentInChildren<Animator>().SetFloat("SwimSpeed", speed);
+    }
+
+    protected void Swim(Vector3 direction)
+    {
+        transform.localPosition += direction;
     }
 }
