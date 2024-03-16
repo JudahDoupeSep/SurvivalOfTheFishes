@@ -29,7 +29,7 @@ public class PlayerController : Fish
                 -1 * SwimDepth - transform.localPosition.z);
             
            Swim(new Vector3(xDelta, 0, zDelta));
-           Debug.Log(xDelta + " " + zDelta);
+           //Debug.Log(xDelta + " " + zDelta);
         }
     }
 }

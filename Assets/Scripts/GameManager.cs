@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
             case GameState.Playing:
                 if (Hatchery.CompetitorCount == 0)
                 {
-                    WinGame();
+                    //WinGame();
                 }
                 break;
             case GameState.CutScene:
@@ -53,8 +53,8 @@ public class GameManager : MonoBehaviour
     private void StartGame()
     {
         UiManager.HideAll();
-        Hatchery.SpawnFish(10, ArtiFishalIntelligence.Dory);
-        Hatchery.SpawnFish(10, ArtiFishalIntelligence.Nemo);
+        Hatchery.SpawnFish(0, ArtiFishalIntelligence.Dory);
+        Hatchery.SpawnFish(1, ArtiFishalIntelligence.Marlin);
         PlayAreaMovement.StartMoving();
         _state = GameState.Playing;
     }

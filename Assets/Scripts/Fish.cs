@@ -10,7 +10,7 @@ public class Fish : MonoBehaviour
     public float StreamWidth = 100f;
     public float SwimDepth = 30f;
     public float growthDuration = 2f;
-    public GameObject[] Hazards;
+
     protected void StartFish()
     {
         UpdateAnimationSpeed(Random.Range(0.5f, 1));
