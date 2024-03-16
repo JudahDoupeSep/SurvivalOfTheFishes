@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 6811969456927400133}
   - component: {fileID: 3301624486032249195}
   m_Layer: 0
-  m_Name: StreamSegment
+  m_Name: EmptyStream
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
