@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraMovement : MonoBehaviour
+public class PlayAreaMovement : MonoBehaviour
 {
     public bool started = false;
     public float speed = 1.0f;
