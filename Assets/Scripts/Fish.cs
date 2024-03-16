@@ -9,6 +9,7 @@ public class Fish : MonoBehaviour
     public float Speed = 4f;
     public float StreamWidth = 100f;
     public float SwimDepth = 30f;
+    public float growthDuration = 2f;
     public GameObject[] Hazards;
     protected void StartFish()
     {
@@ -44,6 +45,33 @@ public class Fish : MonoBehaviour
     protected void Swim(Vector3 direction)
     {
         transform.localPosition += direction;
-        UpdateAnimationSpeed(Math.Max((Math.Abs(direction.x) + Math.Abs(direction.y) + Math.Abs(direction.z))*25, .25f ));
+        UpdateAnimationSpeed(Math.Max((Math.Abs(direction.x) + Math.Abs(direction.y) + Math.Abs(direction.z)) * 25, .25f));
+    }
+
+    private Coroutine growCoroutine;
+    public void UpdateFishSize(float newSize)
+    {
+        if (growCoroutine != null)
+        {
+            StopCoroutine(growCoroutine);
+        }
+        growCoroutine = StartCoroutine(ScaleOverTime(newSize));
+    }
+
+    private IEnumerator ScaleOverTime(float scale)
+    {
+        var startScale = transform.localScale;
+        var endScale = Vector3.one * scale;
+        var elapsed = 0f;
+
+        while (elapsed < growthDuration)
+        {
+            var t = elapsed / growthDuration;
+            transform.localScale = Vector3.Lerp(startScale, endScale, t);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.localScale = endScale;
     }
 }

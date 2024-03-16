@@ -580,6 +580,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2873320592512259548, guid: 9fdbf3dfea0f1994093a55ac03c15d23,
+        type: 3}
+      propertyPath: growthDuration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3045894277668766656, guid: 9fdbf3dfea0f1994093a55ac03c15d23,
         type: 3}
       propertyPath: initialStream

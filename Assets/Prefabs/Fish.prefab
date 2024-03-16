@@ -182,6 +182,7 @@ MonoBehaviour:
   Speed: 4
   StreamWidth: 5
   SwimDepth: 3
+  growthDuration: 2
   Hazards: []
 --- !u!1 &8998512750422314432
 GameObject:

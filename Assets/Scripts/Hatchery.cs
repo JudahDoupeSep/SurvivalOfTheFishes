@@ -45,11 +45,11 @@ public class Hatchery : MonoBehaviour
         Destroy(fish);
 
         float newSize = minFishSize + (maxFishSize - minFishSize) * (totalCompetitors - CompetitorCount) / totalCompetitors;
-        Vector3 newSizeVector = new Vector3(newSize, newSize, newSize);
-        FindObjectOfType<PlayerController>().gameObject.transform.localScale = newSizeVector;
+
+        FindObjectOfType<PlayerController>().UpdateFishSize(newSize);
         foreach (var competitor in _competitors)
         {
-            competitor.transform.localScale = newSizeVector;
+            competitor.GetComponent<Fish>().UpdateFishSize(newSize);
         }
         if (CompetitorCount == 0)
         {
@@ -59,6 +59,7 @@ public class Hatchery : MonoBehaviour
 
     public static void SpawnFish(int fishCount, ArtiFishalIntelligence intelligence)
     {
+        FindObjectOfType<PlayerController>().transform.localScale = Vector3.one * minFishSize;
         totalCompetitors += fishCount;
         for (var i = 0; i < fishCount; i++)
         {
