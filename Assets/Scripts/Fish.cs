@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Fish : MonoBehaviour
 {
@@ -42,5 +44,6 @@ public class Fish : MonoBehaviour
     protected void Swim(Vector3 direction)
     {
         transform.localPosition += direction;
+        UpdateAnimationSpeed(Math.Max((Math.Abs(direction.x) + Math.Abs(direction.y) + Math.Abs(direction.z))*25, .25f ));
     }
 }
