@@ -15,6 +15,7 @@ public class Fish : MonoBehaviour
     void Start()
     {
         ActiveSpeed = Speed;
+        UpdateAnimationSpeed(Random.Range(0.5f, 1));
     }
 
     // Update is called once per frame
@@ -39,5 +40,10 @@ public class Fish : MonoBehaviour
             ActiveSpeed = Speed;
             GetComponentInChildren<MeshRenderer>().gameObject.transform.Rotate(90, 0, 0);
         }
+    }
+
+    public void UpdateAnimationSpeed(float speed)
+    {
+        GetComponentInChildren<Animator>().SetFloat("SwimSpeed", speed);
     }
 }

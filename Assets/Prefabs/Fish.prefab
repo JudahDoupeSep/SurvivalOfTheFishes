@@ -115,6 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8878180665557191844}
   - component: {fileID: 6826224565406619389}
+  - component: {fileID: 6584237592855977918}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Player
@@ -166,6 +167,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &6584237592855977918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7754192516009828063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d1758500ed1e143be65d5c359643d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 4
+  StreamWidth: 5
+  SwimDepth: 3
+  Hazards: []
 --- !u!1 &8998512750422314432
 GameObject:
   m_ObjectHideFlags: 0
