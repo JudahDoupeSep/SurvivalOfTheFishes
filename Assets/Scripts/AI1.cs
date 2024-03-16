@@ -25,9 +25,9 @@ public class AI1 : Fish
         lastX = xMove;
         lastZ = zMove;
 
-        float xDelta = Mathf.Max(Mathf.Min(xMove * Speed * Time.deltaTime, StreamWidth - transform.localPosition.x),
+        float xDelta = Mathf.Max(Mathf.Min(xMove * ActiveSpeed * Time.deltaTime, StreamWidth - transform.localPosition.x),
             -1 * StreamWidth - transform.localPosition.x);
-        float zDelta = Mathf.Max(Mathf.Min(zMove * Speed * Time.deltaTime, SwimDepth - transform.localPosition.z),
+        float zDelta = Mathf.Max(Mathf.Min(zMove * ActiveSpeed * Time.deltaTime, SwimDepth - transform.localPosition.z),
             -1 * SwimDepth - transform.localPosition.z);
 
         //Debug.Log(name + ":" + transform.localPosition + " MoveX:" + xMove + " MoveZ:" + zMove);
