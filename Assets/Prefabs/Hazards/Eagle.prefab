@@ -136,8 +136,10 @@ MonoBehaviour:
   RightOffset: 1
   startSprite: {fileID: 3368168152133049817}
   endSprite: {fileID: 47338548766153175}
-  DeadPlayer: {fileID: 0}
-  DeadFish: {fileID: 0}
+  DeadPlayer: {fileID: 7754192516009828063, guid: 756bb5d04b1ceb043a628739d54ba7b4,
+    type: 3}
+  DeadFish: {fileID: 7754192516009828063, guid: 756bb5d04b1ceb043a628739d54ba7b4,
+    type: 3}
 --- !u!136 &5076865403223603560
 CapsuleCollider:
   m_ObjectHideFlags: 0
