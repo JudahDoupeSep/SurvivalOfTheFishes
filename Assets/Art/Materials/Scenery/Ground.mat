@@ -136,8 +136,9 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Rotation: 5.12
     - _SampleGI: 0
-    - _Scale: 0.11
+    - _Scale: 0.05
     - _Seed: 14.27
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0

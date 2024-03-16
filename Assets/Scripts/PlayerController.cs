@@ -10,11 +10,14 @@ public class PlayerController : Fish
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        StartFish();
     }
 
     // Update is called once per frame
     void Update()
     {
+        UpdateFish();
+        
         float xMove = Input.GetAxisRaw("Horizontal"); // d key changes value to 1, a key changes value to -1
         float zMove = Input.GetAxisRaw("Vertical"); // w key changes value to 1, s key changes value to -1
 

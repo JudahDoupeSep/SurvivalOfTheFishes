@@ -6,15 +6,17 @@ using UnityEngine;
 public class AI2 : Fish
 {
     public float Tolerance = .05f;
-    // Start is called before the first frame update
+
     void Start()
     {
-        
+        StartFish();
     }
-
+    
     // Update is called once per frame
     void Update()
     {
+        UpdateFish();
+        
         Debug.Log(name + " Hazards Seen:" + Hazards.Length); 
         float xMove = 0; //todo detect obstacles and avoid
         var nextHazard = Hazards

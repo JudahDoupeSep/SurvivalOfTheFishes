@@ -8,16 +8,17 @@ public class AI1 : Fish
 
     private float lastX = 0;
     private float lastZ = 0;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
-        
+        StartFish();
     }
 
     // Update is called once per frame
     void Update()
     {
+        UpdateFish();
+        
         float xMove = (Random.Range(0, Stability) < 1) ? Random.Range(-1, 2) : lastX;
 
         float zMove = (Random.Range(0, Stability) < 1) ? Random.Range(-1, 2) : lastZ;

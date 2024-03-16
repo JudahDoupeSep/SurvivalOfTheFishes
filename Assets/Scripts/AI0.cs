@@ -6,16 +6,16 @@ using UnityEngine.UIElements;
 public class AI0 : Fish
 {
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        StartFish();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        UpdateFish();
+        
         float xDelta = Mathf.Max(0, transform.localPosition.x - StreamWidth);
         xDelta += Mathf.Min(0, transform.localPosition.x + StreamWidth);
         float zDelta = Mathf.Max(0, transform.localPosition.z - SwimDepth);
