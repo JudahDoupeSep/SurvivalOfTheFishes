@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Hazard : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            // TODO: end the game
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else
         {
-            Destroy(other.gameObject);
+            Destroy(collision.gameObject);
         }
     }
 }
