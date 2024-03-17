@@ -4,43 +4,44 @@ using UnityEngine.UIElements;
 
 public class Hazard : MonoBehaviour
 {
-    public float FrontOffset;
-    public float BackOffset;
-    public float LeftOffset;
-    public float RightOffset;
+    public float FrontGlobal;
+    public float BackGlobal;
+    public float LeftGlobal;
+    public float RightGlobal;
 
     public GameObject startSprite;
     public GameObject endSprite;
     public GameObject DeadPlayer;
     public GameObject DeadFish;
 
-    void Start()
+    void Update()
     {
+        var globalPos = transform.parent.TransformPoint(transform.localPosition);
         SphereCollider sc = GetComponent<SphereCollider>(); 
         if( sc != null)
         {
-            LeftOffset = sc.radius * -1 * transform.localScale.x;
-            RightOffset = sc.radius * transform.localScale.x;
-            BackOffset = sc.radius * transform.localScale.x;
-            FrontOffset = sc.radius * -1 * transform.localScale.x;
+            LeftGlobal = globalPos.x - (sc.radius * transform.localScale.x);
+            RightGlobal = globalPos.x + (sc.radius * transform.localScale.x);
+            BackGlobal = globalPos.z + (sc.radius * transform.localScale.z);
+            FrontGlobal = globalPos.z - ( sc.radius * transform.localScale.z);
         }
 
         BoxCollider bc = GetComponent<BoxCollider>();
         if (bc != null)
         {
-            LeftOffset = bc.size.x/2 * -1;
-            RightOffset = bc.size.x / 2;
-            BackOffset = bc.size.z / 2;
-            FrontOffset = bc.size.z / 2 * -1;
+            LeftGlobal = globalPos.x - (bc.size.x/ 2 * transform.localScale.x);
+            RightGlobal = globalPos.x + (bc.size.x / 2 * transform.localScale.x);
+            BackGlobal = globalPos.z + (bc.size.z / 2 * transform.localScale.z);
+            FrontGlobal = globalPos.z - (bc.size.z / 2 * transform.localScale.z);
         }
 
         CapsuleCollider cc = GetComponent<CapsuleCollider>();
-        if (bc != null)
+        if (cc != null)
         {
-            LeftOffset = cc.height / 2 * -1;
-            RightOffset = cc.height / 2;
-            BackOffset = cc.radius / 2;
-            FrontOffset = cc.radius / 2 * -1;
+            LeftGlobal = globalPos.x - (cc.height / 2 * transform.localScale.x);
+            RightGlobal = globalPos.x + (cc.height / 2 * transform.localScale.x);
+            BackGlobal = globalPos.z + (cc.radius / 2 * transform.localScale.z);
+            FrontGlobal = globalPos.z - (cc.radius / 2 * transform.localScale.z);
         }
     }
 

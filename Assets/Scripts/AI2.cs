@@ -16,28 +16,27 @@ public class AI2 : Fish
     void Update()
     {
         UpdateFish();
-        
-        Debug.Log(name + " Hazards Seen:" + Hatchery.Hazards.Count); 
+        var hazards = FindObjectsOfType<Hazard>();
+        var globalFish = transform.parent.TransformPoint(transform.localPosition);
+        Debug.Log(name + " Hazards Seen:" + hazards.Length); 
         float xMove = 0; //todo detect obstacles and avoid
-        var nextHazard = Hatchery.Hazards
-            .Where(h => transform.TransformPoint( h.transform.position).z - h.BackOffset > transform.position.z - GetComponentInChildren<CapsuleCollider>().height/2 - Tolerance)
-            .OrderBy(h => transform.TransformPoint(h.transform.position).z).FirstOrDefault();
+        var nextHazard = hazards
+            .Where(h => h.BackGlobal > globalFish.z - GetComponentInChildren<CapsuleCollider>().height/2 - Tolerance)
+            .OrderBy(h => h.FrontGlobal).FirstOrDefault();
 
-
+        
         if (nextHazard != null)
         {
-            var hazardPosition = transform.TransformPoint( nextHazard.transform.position).x;
-            var fishPosition = transform.position.x;
-            Debug.Log(name + " Checking Hazard: " + nextHazard.name + " Location: " + hazardPosition + "From: " + fishPosition);
+            var fishPosition = globalFish.x;
+            //Debug.Log(name + " Checking Hazard: " + nextHazard.name + " Location: " + hazardPosition + "From: " + fishPosition);
 
-            Debug.Log("Hazard Left Edge:" + (nextHazard.LeftOffset + hazardPosition));
-            Debug.Log("Fish Right Edge:" + (fishPosition + GetComponentInChildren<CapsuleCollider>().radius + Tolerance));
-            if (hazardPosition <= fishPosition && nextHazard.RightOffset + hazardPosition > fishPosition - GetComponentInChildren<CapsuleCollider>().radius - Tolerance)
+
+            if (nextHazard.LeftGlobal + (nextHazard.RightGlobal - nextHazard.LeftGlobal)/2 <= fishPosition && nextHazard.RightGlobal > fishPosition - GetComponentInChildren<CapsuleCollider>().radius - Tolerance)
             {
                 xMove = 1;
                 //Debug.Log(name + ":" + transform.localPosition + " Avoiding: " + hazardPosition + "From: " + fishPosition);
             }
-            else if (hazardPosition > fishPosition && nextHazard.LeftOffset + hazardPosition < fishPosition + GetComponentInChildren<CapsuleCollider>().radius + Tolerance)
+            else if (nextHazard.LeftGlobal + (nextHazard.RightGlobal - nextHazard.LeftGlobal) / 2 > fishPosition && nextHazard.LeftGlobal < fishPosition + GetComponentInChildren<CapsuleCollider>().radius + Tolerance)
             {
                 xMove = -1;
                 //Debug.Log(name + ":" + transform.localPosition + " Avoiding: " + hazardPosition + "From: " + fishPosition);
