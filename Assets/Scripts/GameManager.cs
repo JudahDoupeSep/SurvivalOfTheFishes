@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;
         SetupLevel();
+        UiManager.ShowTitleScreen();
         Hatchery.AnimateSpawn();
     }
     
