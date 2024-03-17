@@ -110,24 +110,19 @@ public class GameManager : MonoBehaviour
         switch (_currentLevel)
         {
             case 0:
+                Hatchery.SpawnFish(5, ArtiFishalIntelligence.Dory);
                 Hatchery.SpawnFish(10, ArtiFishalIntelligence.Nemo);
                 break;
             case 1:
+                Hatchery.SpawnFish(10, ArtiFishalIntelligence.Dory);
                 Hatchery.SpawnFish(10, ArtiFishalIntelligence.Nemo);
-                Hatchery.SpawnFish(5, ArtiFishalIntelligence.Marlin);
-                break;
-            case 2:
-                Hatchery.SpawnFish(10, ArtiFishalIntelligence.Nemo);
-                Hatchery.SpawnFish(10, ArtiFishalIntelligence.Marlin);
-                break;
-            case 3:
-                Hatchery.SpawnFish(10, ArtiFishalIntelligence.Nemo);
-                Hatchery.SpawnFish(20, ArtiFishalIntelligence.Marlin);
+                Hatchery.SpawnFish(15, ArtiFishalIntelligence.Marlin);
                 break;
             default:
-                Hatchery.SpawnFish(25, ArtiFishalIntelligence.Nemo);
-                Hatchery.SpawnFish(25, ArtiFishalIntelligence.Marlin);
+                Hatchery.SpawnFish(_currentLevel * 10, ArtiFishalIntelligence.Nemo);
+                Hatchery.SpawnFish(_currentLevel * 13, ArtiFishalIntelligence.Marlin);
                 break;
+
         }
 
         _currentLevel++;
