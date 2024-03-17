@@ -10,16 +10,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3103730996851156510, guid: 9c4af8649f7764f409793db5a3812f8d,
         type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.9987996
-      objectReference: {fileID: 0}
-    - target: {fileID: 3103730996851156510, guid: 9c4af8649f7764f409793db5a3812f8d,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.9987996
-      objectReference: {fileID: 0}
-    - target: {fileID: 3103730996851156510, guid: 9c4af8649f7764f409793db5a3812f8d,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.8548698
       objectReference: {fileID: 0}
@@ -94,16 +84,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3103730996851156510, guid: 9c4af8649f7764f409793db5a3812f8d,
         type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.9987996
-      objectReference: {fileID: 0}
-    - target: {fileID: 3103730996851156510, guid: 9c4af8649f7764f409793db5a3812f8d,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.9987996
-      objectReference: {fileID: 0}
-    - target: {fileID: 3103730996851156510, guid: 9c4af8649f7764f409793db5a3812f8d,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.1745408
       objectReference: {fileID: 0}
@@ -176,16 +156,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3069045921423400613}
     m_Modifications:
-    - target: {fileID: 6446123063305884569, guid: d6035c16332070740948cc0f7489df50,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.9987996
-      objectReference: {fileID: 0}
-    - target: {fileID: 6446123063305884569, guid: d6035c16332070740948cc0f7489df50,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.9987996
-      objectReference: {fileID: 0}
     - target: {fileID: 6446123063305884569, guid: d6035c16332070740948cc0f7489df50,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -443,18 +413,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eagle
       objectReference: {fileID: 0}
-    - target: {fileID: 5222349405565092684, guid: a83a44dd6e0769d4899b2f67aa2b1ffb,
-        type: 3}
-      propertyPath: DeadFish
-      value: 
-      objectReference: {fileID: 7754192516009828063, guid: 756bb5d04b1ceb043a628739d54ba7b4,
-        type: 3}
-    - target: {fileID: 5222349405565092684, guid: a83a44dd6e0769d4899b2f67aa2b1ffb,
-        type: 3}
-      propertyPath: DeadPlayer
-      value: 
-      objectReference: {fileID: 7754192516009828063, guid: 756bb5d04b1ceb043a628739d54ba7b4,
-        type: 3}
     - target: {fileID: 5938577283736270131, guid: a83a44dd6e0769d4899b2f67aa2b1ffb,
         type: 3}
       propertyPath: m_LocalPosition.x

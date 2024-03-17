@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AI2 : Fish
 {
-    public float Tolerance = .5f;
+    public float Tolerance = .6f;
 
     void Start()
     {

@@ -45,7 +45,7 @@ public class Fish : MonoBehaviour
 
     protected void Swim(Vector3 direction)
     {
-        GetComponent<Rigidbody>().velocity = direction * SwimForce;
+        GetComponent<Rigidbody>().velocity = direction * SwimForce * (1 + (transform.localScale.x-1)/2) ;
         UpdateAnimationSpeed(Math.Max((Math.Abs(direction.x) + Math.Abs(direction.y) + Math.Abs(direction.z)) * 25, .25f));
     }
 

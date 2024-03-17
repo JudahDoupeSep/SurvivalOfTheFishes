@@ -40,6 +40,5 @@ public class StreamGeneration : MonoBehaviour
         latestStreamSegment = Object.Instantiate(randomStream);
         latestStreamSegment.transform.position += latestPosition + (Vector3.forward * streamSegmentLength);
         spawnedSegments++;
-        Hatchery.AddHazards(randomStream.GetComponentsInChildren<Hazard>());
     }
 }

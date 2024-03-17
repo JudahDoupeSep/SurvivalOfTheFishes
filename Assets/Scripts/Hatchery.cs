@@ -19,8 +19,8 @@ public class Hatchery : MonoBehaviour
     public static List<Hazard> Hazards;
 
     private static int totalCompetitors = 0;
-    public static float minFishSize = 0.8f;
-    public static float maxFishSize = 2.6f;
+    public static float minFishSize = 0.6f;
+    public static float maxFishSize = 2.0f;
 
     private float _streamWidth;
     private float _streamDepth;
@@ -82,14 +82,10 @@ public class Hatchery : MonoBehaviour
             }
             _competitors.Add(fish);
             fish.transform.parent = _instance.transform;
+            fish.transform.localScale = Vector3.one * minFishSize;
             fish.transform.localPosition = new Vector3(Random.Range(-_instance._streamWidth, _instance._streamWidth),
                                                        0.1f,
                                                        Random.Range(-_instance._streamDepth, _instance._streamDepth));
         }
-    }
-
-    public static void AddHazards(Hazard[] newHazards)
-    {
-        Hazards.AddRange(newHazards);
     }
 }
