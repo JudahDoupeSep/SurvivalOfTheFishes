@@ -53,8 +53,9 @@ public class GameManager : MonoBehaviour
     private void StartGame()
     {
         UiManager.HideAll();
-        Hatchery.SpawnFish(0, ArtiFishalIntelligence.Dory);
-        Hatchery.SpawnFish(1, ArtiFishalIntelligence.Marlin);
+        Hatchery.SpawnFish(10, ArtiFishalIntelligence.Dory);
+        Hatchery.SpawnFish(10, ArtiFishalIntelligence.Nemo);
+        Hatchery.SpawnFish(20, ArtiFishalIntelligence.Marlin);
         PlayAreaMovement.StartMoving();
         _state = GameState.Playing;
     }

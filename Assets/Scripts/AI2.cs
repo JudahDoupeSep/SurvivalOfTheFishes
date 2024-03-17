@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AI2 : Fish
 {
-    public float Tolerance = .05f;
+    public float Tolerance = .5f;
 
     void Start()
     {
@@ -34,11 +34,19 @@ public class AI2 : Fish
             if (nextHazard.LeftGlobal + (nextHazard.RightGlobal - nextHazard.LeftGlobal)/2 <= fishPosition && nextHazard.RightGlobal > fishPosition - GetComponentInChildren<CapsuleCollider>().radius - Tolerance)
             {
                 xMove = 1;
+                if (nextHazard.RightGlobal >= StreamWidth)
+                {
+                    xMove = -1;
+                }
                 //Debug.Log(name + ":" + transform.localPosition + " Avoiding: " + hazardPosition + "From: " + fishPosition);
             }
             else if (nextHazard.LeftGlobal + (nextHazard.RightGlobal - nextHazard.LeftGlobal) / 2 > fishPosition && nextHazard.LeftGlobal < fishPosition + GetComponentInChildren<CapsuleCollider>().radius + Tolerance)
             {
                 xMove = -1;
+                if (nextHazard.LeftGlobal <= StreamWidth * -1)
+                {
+                    xMove = 1;
+                }
                 //Debug.Log(name + ":" + transform.localPosition + " Avoiding: " + hazardPosition + "From: " + fishPosition);
             }
         }
