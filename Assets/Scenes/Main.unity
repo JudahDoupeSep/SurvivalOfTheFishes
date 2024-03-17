@@ -824,7 +824,7 @@ PrefabInstance:
     - target: {fileID: 3045894277668766656, guid: 9fdbf3dfea0f1994093a55ac03c15d23,
         type: 3}
       propertyPath: streams.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3045894277668766656, guid: 9fdbf3dfea0f1994093a55ac03c15d23,
         type: 3}
@@ -854,7 +854,13 @@ PrefabInstance:
         type: 3}
       propertyPath: streams.Array.data[5]
       value: 
-      objectReference: {fileID: 7178992286304603185, guid: f9a33b378d382364981c2259e9a558bb,
+      objectReference: {fileID: 7178992286304603185, guid: be599441fac5f5b4ebdddcfaf870da3b,
+        type: 3}
+    - target: {fileID: 3045894277668766656, guid: 9fdbf3dfea0f1994093a55ac03c15d23,
+        type: 3}
+      propertyPath: streams.Array.data[6]
+      value: 
+      objectReference: {fileID: 7178992286304603185, guid: 5796512aa08471646aaaca397aacd975,
         type: 3}
     - target: {fileID: 4850132235493142729, guid: 9fdbf3dfea0f1994093a55ac03c15d23,
         type: 3}
