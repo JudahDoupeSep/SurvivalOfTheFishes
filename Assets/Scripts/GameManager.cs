@@ -64,7 +64,21 @@ public class GameManager : MonoBehaviour
 
     public static void LoseGame() => _instance.StartCoroutine(_instance.LoseGameCutscene());
 
-    private void WinGame() => StartCoroutine(WinGameCutscene());
+    private void WinGame()
+    {
+        _instance._state = GameState.CutScene;
+        UiManager.ShowWinScreen();
+        foreach (var hazard in FindObjectsOfType<Hazard>())
+        {
+            Destroy(hazard.gameObject);
+        }
+        
+        PlayAreaMovement.StopMoving();
+        
+        SetupLevel();
+        
+        Hatchery.AnimateSpawn();
+    }
 
     private IEnumerator LoseGameCutscene()
     {
@@ -74,29 +88,6 @@ public class GameManager : MonoBehaviour
         Destroy(FindObjectOfType<PlayerController>().gameObject);
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-    
-    private IEnumerator WinGameCutscene()
-    {
-        _instance._state = GameState.CutScene;
-        UiManager.ShowWinScreen();
-        var breedingGroundPosition = StreamGeneration.SpawnBreadingGrounds();
-        var player = FindObjectOfType<PlayerController>();
-        foreach (var hazard in FindObjectsOfType<Hazard>())
-        {
-            Destroy(hazard.gameObject);
-        }
-        
-        while (player.transform.position.z < breedingGroundPosition.z)
-        {
-            yield return new WaitForEndOfFrame();
-        }
-        
-        PlayAreaMovement.StopMoving();
-        
-        SetupLevel();
-        
-        Hatchery.AnimateSpawn();
     }
 
     public static void WaitForInput()

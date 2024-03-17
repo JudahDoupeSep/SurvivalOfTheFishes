@@ -49,10 +49,4 @@ public class StreamGeneration : MonoBehaviour
             Destroy(oldStream);
         }
     }
-
-    public static Vector3 SpawnBreadingGrounds()
-    {
-        _instance.SpawnSegment(_instance.emptyStream);
-        return _instance.existingStreams.Last().transform.position - (Vector3.forward * _instance.streamSegmentLength / 2f);
-    }
 }
