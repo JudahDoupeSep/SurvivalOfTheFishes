@@ -15,15 +15,16 @@ public class GameManager : MonoBehaviour
 {
 
     private static GameManager _instance;
-    private GameState _state = GameState.WaitingForInput;
+    private GameState _state = GameState.CutScene;
+    private int _currentLevel = 0;
     
     public PlayAreaMovement playAreaMovement;
 
     private void Start()
     {
         _instance = this;
-        UiManager.ShowTitleScreen();
-        UiManager.ShowPrompt();
+        SetupLevel();
+        Hatchery.AnimateSpawn();
     }
     
     private void Update()
@@ -53,8 +54,7 @@ public class GameManager : MonoBehaviour
     private void StartGame()
     {
         UiManager.HideAll();
-        Hatchery.SpawnFish(10, ArtiFishalIntelligence.Nemo);
-        Hatchery.SpawnFish(20, ArtiFishalIntelligence.Marlin);
+        Hatchery.HatchFish();
         PlayAreaMovement.StartMoving();
         _state = GameState.Playing;
     }
@@ -78,10 +78,57 @@ public class GameManager : MonoBehaviour
     private IEnumerator WinGameCutscene()
     {
         _instance._state = GameState.CutScene;
-        PlayAreaMovement.StopMoving();
         UiManager.ShowWinScreen();
-        yield return new WaitForSeconds(3);
+        var breedingGroundPosition = StreamGeneration.SpawnBreadingGrounds();
+        var player = FindObjectOfType<PlayerController>();
+        foreach (var hazard in FindObjectsOfType<Hazard>())
+        {
+            Destroy(hazard.gameObject);
+        }
+        
+        while (player.transform.position.z < breedingGroundPosition.z)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        
+        PlayAreaMovement.StopMoving();
+        
+        SetupLevel();
+        
+        Hatchery.AnimateSpawn();
+    }
+
+    public static void WaitForInput()
+    {
         UiManager.ShowPrompt();
         _instance._state = GameState.WaitingForInput;
+    }
+
+    private void SetupLevel()
+    {
+        switch (_currentLevel)
+        {
+            case 0:
+                Hatchery.SpawnFish(10, ArtiFishalIntelligence.Nemo);
+                break;
+            case 1:
+                Hatchery.SpawnFish(10, ArtiFishalIntelligence.Nemo);
+                Hatchery.SpawnFish(5, ArtiFishalIntelligence.Marlin);
+                break;
+            case 2:
+                Hatchery.SpawnFish(10, ArtiFishalIntelligence.Nemo);
+                Hatchery.SpawnFish(10, ArtiFishalIntelligence.Marlin);
+                break;
+            case 3:
+                Hatchery.SpawnFish(10, ArtiFishalIntelligence.Nemo);
+                Hatchery.SpawnFish(20, ArtiFishalIntelligence.Marlin);
+                break;
+            default:
+                Hatchery.SpawnFish(25, ArtiFishalIntelligence.Nemo);
+                Hatchery.SpawnFish(25, ArtiFishalIntelligence.Marlin);
+                break;
+        }
+
+        _currentLevel++;
     }
 }

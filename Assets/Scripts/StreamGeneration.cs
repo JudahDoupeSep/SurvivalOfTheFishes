@@ -5,40 +5,54 @@ using UnityEngine;
 
 public class StreamGeneration : MonoBehaviour
 {
+    public static StreamGeneration _instance;
+    
     public GameObject initialStream;
     public GameObject emptyStream;
-    public GameObject waterfall;
     public GameObject[] streams;
     public float streamSegmentLength = 100f;
-    private float startingPosition;
-    private float generateNextOncePositionReached;
-    private GameObject latestStreamSegment;
-    private int spawnedSegments = 0;
+    private List<GameObject> existingStreams = new List<GameObject>();
 
     void Start()
     {
-        startingPosition = transform.position.z;
-        generateNextOncePositionReached = startingPosition + streamSegmentLength;
-        latestStreamSegment = initialStream;
+        _instance = this;
+        existingStreams.Add(initialStream);
         SpawnNextSegment();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.z > generateNextOncePositionReached)
+        if (GameManager.State == GameState.Playing 
+            && transform.position.z > existingStreams.Last().transform.position.z)
         {
-            generateNextOncePositionReached += streamSegmentLength;
             SpawnNextSegment();
         }
     }
 
-    void SpawnNextSegment()
+    private void SpawnNextSegment()
     {
-        Vector3 latestPosition = latestStreamSegment.transform.position;
         GameObject randomStream = streams[Mathf.RoundToInt(Random.Range(0, streams.Length) % streams.Length)];
-        latestStreamSegment = Object.Instantiate(randomStream);
-        latestStreamSegment.transform.position += latestPosition + (Vector3.forward * streamSegmentLength);
-        spawnedSegments++;
+        SpawnSegment(randomStream);
+    }
+    
+    private void SpawnSegment(GameObject stream)
+    {
+        var newStream = Instantiate(stream);
+        newStream.transform.position += existingStreams.Last().transform.position + (Vector3.forward * streamSegmentLength);
+        
+        existingStreams.Add(newStream);
+        if (existingStreams.Count > 3)
+        {
+            var oldStream = existingStreams.First();
+            existingStreams.Remove(oldStream);
+            Destroy(oldStream);
+        }
+    }
+
+    public static Vector3 SpawnBreadingGrounds()
+    {
+        _instance.SpawnSegment(_instance.emptyStream);
+        return _instance.existingStreams.Last().transform.position - (Vector3.forward * _instance.streamSegmentLength / 2f);
     }
 }
