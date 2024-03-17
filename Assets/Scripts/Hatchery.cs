@@ -122,6 +122,7 @@ public class Hatchery : MonoBehaviour
         {
             var egg = Instantiate(Egg, fish.transform.parent);
             egg.transform.localPosition = ghostPlayer.transform.localPosition;
+            egg.transform.Rotate(Vector3.up, Random.Range(0, 360));
             _eggs.Add(egg);
         
             eggToStart.Add(egg.gameObject, egg.transform.localPosition);
