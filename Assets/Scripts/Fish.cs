@@ -10,6 +10,7 @@ public class Fish : MonoBehaviour
     public float StreamWidth = 100f;
     public float SwimDepth = 30f;
     public float growthDuration = 2f;
+    public float SwimForce = 50f;
 
     protected void StartFish()
     {
@@ -44,7 +45,7 @@ public class Fish : MonoBehaviour
 
     protected void Swim(Vector3 direction)
     {
-        transform.localPosition += direction;
+        GetComponent<Rigidbody>().velocity = direction * SwimForce;
         UpdateAnimationSpeed(Math.Max((Math.Abs(direction.x) + Math.Abs(direction.y) + Math.Abs(direction.z)) * 25, .25f));
     }
 
