@@ -49,10 +49,9 @@ public class Hatchery : MonoBehaviour
 
         float newSize = minFishSize + (maxFishSize - minFishSize) * (totalCompetitors - CompetitorCount) / totalCompetitors;
 
-        FindObjectOfType<PlayerController>().UpdateFishSize(newSize);
-        foreach (var competitor in _competitors)
+        foreach (var otherFish in FindObjectsOfType<Fish>())
         {
-            competitor.GetComponent<Fish>().UpdateFishSize(newSize);
+            otherFish.UpdateFishSize(newSize);
         }
         if (CompetitorCount == 0)
         {

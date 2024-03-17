@@ -54,7 +54,7 @@ MonoBehaviour:
   RightOffset: 1.76
   startSprite: {fileID: 0}
   endSprite: {fileID: 7910389309930806473}
-  DeadPlayer: {fileID: 7754192516009828063, guid: 756bb5d04b1ceb043a628739d54ba7b4,
+  DeadPlayer: {fileID: 7754192516009828063, guid: b374f32fbbc115f479d1ddcfaf57d46b,
     type: 3}
   DeadFish: {fileID: 7754192516009828063, guid: 756bb5d04b1ceb043a628739d54ba7b4,
     type: 3}

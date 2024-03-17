@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
             case GameState.Playing:
                 if (Hatchery.CompetitorCount == 0)
                 {
-                    //WinGame();
+                    WinGame();
                 }
                 break;
             case GameState.CutScene:
@@ -53,7 +53,6 @@ public class GameManager : MonoBehaviour
     private void StartGame()
     {
         UiManager.HideAll();
-        Hatchery.SpawnFish(10, ArtiFishalIntelligence.Dory);
         Hatchery.SpawnFish(10, ArtiFishalIntelligence.Nemo);
         Hatchery.SpawnFish(20, ArtiFishalIntelligence.Marlin);
         PlayAreaMovement.StartMoving();
@@ -69,8 +68,9 @@ public class GameManager : MonoBehaviour
     private IEnumerator LoseGameCutscene()
     {
         _instance._state = GameState.CutScene;
-        PlayAreaMovement.StopMoving();
         UiManager.ShowLoseScreen();
+        Camera.main.transform.parent = null;
+        Destroy(FindObjectOfType<PlayerController>().gameObject);
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

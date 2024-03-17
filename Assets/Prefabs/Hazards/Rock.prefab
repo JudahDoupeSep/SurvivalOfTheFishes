@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.01, z: 20}
-  m_LocalScale: {x: 1.9988, y: 1.9988, z: 1.9988}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3630984112837261600}
@@ -71,7 +71,9 @@ MonoBehaviour:
   BackOffset: 0.94
   LeftOffset: -0.94
   RightOffset: 0.94
-  DeadPlayer: {fileID: 7754192516009828063, guid: 756bb5d04b1ceb043a628739d54ba7b4,
+  startSprite: {fileID: 0}
+  endSprite: {fileID: 0}
+  DeadPlayer: {fileID: 7754192516009828063, guid: b374f32fbbc115f479d1ddcfaf57d46b,
     type: 3}
   DeadFish: {fileID: 7754192516009828063, guid: 756bb5d04b1ceb043a628739d54ba7b4,
     type: 3}
