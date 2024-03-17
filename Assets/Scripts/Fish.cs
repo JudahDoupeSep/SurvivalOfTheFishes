@@ -71,11 +71,17 @@ public class Fish : MonoBehaviour
         while (elapsed < growthDuration)
         {
             var t = elapsed / growthDuration;
-            transform.localScale = Vector3.Lerp(startScale, endScale, t);
+            if (GameManager.State == GameState.Playing)
+            {
+                transform.localScale = Vector3.Lerp(startScale, endScale, t);
+            }
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        transform.localScale = endScale;
+        if (GameManager.State == GameState.Playing)
+        {
+            transform.localScale = endScale;
+        }
     }
 }
